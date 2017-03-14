@@ -82,5 +82,6 @@ void loop()
 {
   ans+=300000; 
 }
+Serial.print(ans);
   delay(1000);                  
 }
