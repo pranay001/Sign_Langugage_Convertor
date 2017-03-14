@@ -5,7 +5,7 @@
 //ATWR
 //ATCN
 
-const int flexpin1 = A0;
+const int flexpin1 = A0;   //pin setup for analog inputs from flex sensor
 const int flexpin2 = A1;
 const int flexpin3 = A2;
 const int flexpin4 = A3;
@@ -41,16 +41,16 @@ void loop()
   fp3 = analogRead(flexpin3);  
   fp4 = analogRead(flexpin4);  
   fp5 = analogRead(flexpin5);  
-  //Serial.print("sensor 1: ");
-  //Serial.println(fp1);
-  //Serial.print("sensor 2: ");
-  //Serial.println(fp2);
-  //Serial.print("sensor 3: ");
-  //Serial.println(fp3);
-  //Serial.print("sensor 4: ");
-  //Serial.println(fp4);
-  //Serial.print("sensor 5: ");
-  //Serial.println(fp5);
+  Serial.print("sensor 1: ");
+  Serial.println(fp1);
+  Serial.print("sensor 2: ");
+  Serial.println(fp2);
+  Serial.print("sensor 3: ");
+  Serial.println(fp3);
+  Serial.print("sensor 4: ");
+  Serial.println(fp4);
+  Serial.print("sensor 5: ");
+  Serial.println(fp5);
   if(abs(fp1)>=p1)
       i1=1;
   else
@@ -74,14 +74,14 @@ void loop()
   long int ans = (i1*10000)+(i2*1000)+(i3*100)+(i4*10)+i5;
   buttonState = digitalRead(buttonPin);
   digitalWrite(ledPin,buttonState);
-  if (buttonState == LOW)                      //Character mode loop
+  if (buttonState == LOW)    //Character mode loop
 {    
   ans+=200000;
 }
- else                                          //Sentence mode loop
+ else                        //Sentence mode loop
 {
   ans+=300000; 
 }
-Serial.print(ans);
+Serial.print(ans);          //transmission key word for Xbee                                  
   delay(1000);                  
 }
